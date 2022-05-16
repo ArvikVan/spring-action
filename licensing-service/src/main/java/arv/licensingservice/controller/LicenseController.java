@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Locale;
+
 /**
  * @author ArvikV
  * @version 1.0
@@ -25,13 +27,17 @@ public class LicenseController {
     }
     @PutMapping
     public ResponseEntity<String> updateLicense(@PathVariable ("organizationId") String organizationId,
-                                                @RequestBody License license) {
-        return ResponseEntity.ok(licenseService.updateLicense(license, organizationId));
+                                                @RequestBody License license,
+                                                @RequestHeader (value = "Accept-Language",required = false)
+                                                    Locale locale) {
+        return ResponseEntity.ok(licenseService.updateLicense(license, organizationId, locale));
     }
     @PostMapping
     public ResponseEntity<String> createLicense(@PathVariable ("organizationId") String organizationId,
-                                                @RequestBody License request) {
-        return ResponseEntity.ok(licenseService.createLicense(request, organizationId));
+                                                @RequestBody License request,
+                                                @RequestHeader (value = "Accept-Language",required = false)
+                                                Locale locale) {
+        return ResponseEntity.ok(licenseService.createLicense(request, organizationId, locale));
     }
     @DeleteMapping("/{licenseId}")
     public ResponseEntity<String> deletLicense(@PathVariable ("organizationId") String organizationId,
