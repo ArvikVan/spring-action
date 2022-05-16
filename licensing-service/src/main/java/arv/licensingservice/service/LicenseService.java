@@ -48,12 +48,12 @@ public class LicenseService {
 
     /**
      * метод обновления
-     * @param license лицензия
+     *
+     * @param license        лицензия
      * @param organizationId ид организации
-     * @param locale локаль
      * @return на выходе обновленная лицензия
      */
-    public String updateLicense(License license, String organizationId, Locale locale) {
+    public String updateLicense(License license, String organizationId) {
         String responseMessage = null;
         if (license != null) {
             license.setOrganizationId(organizationId);

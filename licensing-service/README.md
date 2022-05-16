@@ -2,7 +2,10 @@
 Получаем лицензию, имитация без записи в бд, добавлена локаль<br>
 ![](img/1.png)<br>
 Локаль пользуем, в зависимости от того что указано в Accept-Language
-![](img/2.png)
+![](img/2.png)<br>
+Hypermedia as the Engine of Application State (Гипермедиа как двигатель состояния приложения)<br>
+Получаем с помощью hateos все связанные api<br>
+![](img/3.png)
 
 ### Контакты для связи<br>
 <img src="https://img.icons8.com/clouds/100/000000/gmail-new.png" width="10"/> arvikvan@gmail.com<br>
