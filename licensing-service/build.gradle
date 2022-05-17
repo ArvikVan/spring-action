@@ -2,11 +2,25 @@ plugins {
 	id 'org.springframework.boot' version '2.6.7'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "com.palantir.docker" version "0.22.1"
+	id "com.palantir.docker-run" version "0.22.1"
 }
 
 group = 'arv'
-version = '0.0.1-SNAPSHOT'
+version = '0.1.0'
 sourceCompatibility = '11'
+
+docker {
+	name "${project.name}:${project.version}"
+	files 'licensing-service-0.1.0.jar'
+}
+
+dockerRun {
+	name "${project.name}"
+	image "${project.name}:${project.version}"
+	ports '8082:8082'
+	clean true
+}
 
 configurations {
 	compileOnly {
@@ -26,7 +40,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version: '2.6.7'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.6.7'
-
 }
 
 tasks.named('test') {
